@@ -20,7 +20,7 @@ module.exports = function reee(d) {
     if ([4650, 4651, 4950, 4951, 4952, 4954].includes(e.id) && !tempList[e.target]) {
       tempList[e.target] = true
       d.command.message(`${d.game.party.getMemberData(e.target).name} is a rookie`)
-      addAbnormal(e.gameId)
+      addAbnormal(e.target)
     }
   })
 
@@ -30,7 +30,7 @@ module.exports = function reee(d) {
         if (members.playerId == e.playerId && !tempList[members.gameId]) {
           tempList[members.gameId] = true
           d.command.message(`${members.name} is a rookie`)
-          addAbnormal(e.gameId)
+          addAbnormal(members.gameId)
         }
       })
     }
