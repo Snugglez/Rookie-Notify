@@ -20,6 +20,7 @@ module.exports = function reee(d) {
     if ([4650, 4651, 4950, 4951, 4952, 4954].includes(e.id) && !tempList[e.target]) {
       tempList[e.target] = true
       d.command.message(`${d.game.party.getMemberData(e.target).name} is a rookie`)
+      addAbnormal(e.gameId)
     }
   })
 
@@ -29,12 +30,12 @@ module.exports = function reee(d) {
         if (members.playerId == e.playerId && !tempList[members.gameId]) {
           tempList[members.gameId] = true
           d.command.message(`${members.name} is a rookie`)
+          addAbnormal(e.gameId)
         }
       })
     }
   })
 
-  //if effect isnt applying, I might need to add it back to abnormal hooks as well
   d.hook('S_SPAWN_USER', '*', (e) => { if (tempList[e.gameId]) process.nextTick(() => { addAbnormal(e.gameId) }) })
 
   d.hook('S_ABNORMALITY_END', '*', (e) => { if (tempList[e.target] && e.id == 90520) return false })
