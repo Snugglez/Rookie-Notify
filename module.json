@@ -1,0 +1,18 @@
+{
+	"disableAutoUpdate": false,
+	"name": "Rookie-Notify",
+	"author": "Snug",
+	"description": "Marks rookies in dungeons with an effect",
+	"version": "1.0",
+	"donationUrl": "https://play.google.com/store/apps/details?id=com.CarvedGames.SD",
+	"options": {
+		"guiName": "Rookie-Notify",
+		"niceName": "Rookie-Notify",
+		"settingsVersion": 1,
+		"settingsFile": "config.json",
+		"settingsMigrator": "config_generator.js"
+	},
+	"servers": [
+		"https://raw.githubusercontent.com/Snugglez/Rookie-Notify/master/"
+	]
+}
