@@ -14,7 +14,7 @@ module.exports = function reee(d) {
     }
   })
 
-  d.game.party.on('leave', () => { tempList = {} })
+  d.hook('S_SPAWN_ME', '*', (e) => { if (!d.game.me.inDungeon) tempList = {} })
 
   d.hook('S_ABNORMALITY_BEGIN', '*', (e) => {
     if ([4650, 4651, 4950, 4951, 4952, 4954].includes(e.id) && !tempList[e.target]) {
