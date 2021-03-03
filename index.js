@@ -36,7 +36,7 @@ module.exports = function reee(d) {
     }
   })
 
-  d.hook('S_SPAWN_USER', '*', (e) => { if (tempList[e.gameId]) process.nextTick(() => { addAbnormal(e.gameId) }) })
+  d.hook('S_SPAWN_USER', '*', { filter: { fake: null } }, (e) => { if (tempList[e.gameId]) process.nextTick(() => { addAbnormal(e.gameId) }) })
 
   d.hook('S_ABNORMALITY_END', '*', (e) => { if (tempList[e.target] && e.id == 90520) return false })
 
