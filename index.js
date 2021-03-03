@@ -1,5 +1,5 @@
 module.exports = function reee(d) {
-  let partyList, tempList = {}, tempAbnormal = {}
+  let partyList, tempList = {}
   d.game.initialize("party");
   d.game.party.on('list', (members) => { partyList = members; })
 
@@ -14,7 +14,7 @@ module.exports = function reee(d) {
     }
   })
 
-  d.hook('S_LOAD_TOPO', 'event', () => { if (!d.game.party.inParty()) { tempList = {} } })
+  d.game.party.on('leave', () => { tempList = {} })
 
   d.hook('S_ABNORMALITY_BEGIN', '*', (e) => {
     if ([4650, 4651, 4950, 4951, 4952, 4954].includes(e.id) && !tempList[e.target]) {
