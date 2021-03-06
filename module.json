@@ -13,6 +13,6 @@
 		"settingsMigrator": "config_generator.js"
 	},
 	"servers": [
-		"https://raw.githubusercontent.com/Snugglez/Rookie-Notify/master/"
+		"https://raw.githubusercontent.com/Snugglez/Rookie-Notify/main/"
 	]
 }
