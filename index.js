@@ -17,6 +17,7 @@ module.exports = function reee(d) {
   d.hook('S_SPAWN_ME', '*', (e) => { if (!d.game.me.inDungeon) tempList = {} })
 
   d.hook('S_ABNORMALITY_BEGIN', '*', (e) => {
+    if(!d.game.party.inParty() || !d.settings.enabled) return;
     if ([4650, 4651, 4950, 4951, 4952, 4954].includes(e.id) && !tempList[e.target]) {
       tempList[e.target] = true
       d.command.message(`${d.game.party.getMemberData(e.target).name} is a rookie`)
@@ -25,6 +26,7 @@ module.exports = function reee(d) {
   })
 
   d.hook('S_PARTY_MEMBER_ABNORMAL_ADD', '*', (e) => {
+    if(!d.game.party.inParty() || !d.settings.enabled) return;
     if ([4650, 4651, 4950, 4951, 4952, 4954].includes(e.id)) {
       partyList.forEach(members => {
         if (members.playerId == e.playerId && !tempList[members.gameId]) {
